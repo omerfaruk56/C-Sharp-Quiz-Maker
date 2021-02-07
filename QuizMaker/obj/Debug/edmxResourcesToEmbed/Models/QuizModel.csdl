@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quizMakerdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="answersid" />
+    </Key>
+    <Property Name="answersid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="answers1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_QuestionBankMaker_AnswerKey" FromRole="Answers" ToRole="QuestionMaker" />
+  </EntityType>
+  <EntityType Name="DegreeOfDifficult">
+    <Key>
+      <PropertyRef Name="degreeOffDiffid" />
+    </Key>
+    <Property Name="degreeOffDiffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="degreeOfDiff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_QuestionBankMaker_DegreeOfDifficult" FromRole="DegreeOfDifficult" ToRole="QuestionMaker" />
+  </EntityType>
+  <EntityType Name="ExamLocation">
+    <Key>
+      <PropertyRef Name="examLocationid" />
+    </Key>
+    <Property Name="examLocationid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="examLocation1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ExamMaker" Relationship="Self.FK_ExamMaker_ExamLocation" FromRole="ExamLocation" ToRole="ExamMaker" />
+  </EntityType>
+  <EntityType Name="ExamMaker">
+    <Key>
+      <PropertyRef Name="examMakerid" />
+    </Key>
+    <Property Name="examMakerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="examLocationid" Type="Int32" />
+    <Property Name="supervisorid" Type="Int32" />
+    <Property Name="questionMakerid" Type="Int32" />
+    <Property Name="examNo" Type="Int32" Nullable="false" />
+    <Property Name="groupid" Type="Int32" />
+    <NavigationProperty Name="ExamLocation" Relationship="Self.FK_ExamMaker_ExamLocation" FromRole="ExamMaker" ToRole="ExamLocation" />
+    <NavigationProperty Name="Group" Relationship="Self.FK_ExamMaker_Group" FromRole="ExamMaker" ToRole="Group" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_ExamMaker_QuestionBankMaker" FromRole="ExamMaker" ToRole="QuestionMaker" />
+    <NavigationProperty Name="Supervisor" Relationship="Self.FK_ExamMaker_Supervisor" FromRole="ExamMaker" ToRole="Supervisor" />
+    <NavigationProperty Name="ExamWriter" Relationship="Self.FK_ExamWriter_ExamMaker" FromRole="ExamMaker" ToRole="ExamWriter" />
+  </EntityType>
+  <EntityType Name="ExamWriter">
+    <Key>
+      <PropertyRef Name="examWriterid" />
+    </Key>
+    <Property Name="examWriterid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="examMakerid" Type="Int32" />
+    <Property Name="studentAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ExamMaker" Relationship="Self.FK_ExamWriter_ExamMaker" FromRole="ExamWriter" ToRole="ExamMaker" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="groupid" />
+    </Key>
+    <Property Name="groupid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ExamMaker" Relationship="Self.FK_ExamMaker_Group" FromRole="Group" ToRole="ExamMaker" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="lessonid" />
+    </Key>
+    <Property Name="lessonid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lesson1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_Subject_Lesson" FromRole="Lesson" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="MChoiceOption">
+    <Key>
+      <PropertyRef Name="mChoiceOptionid" />
+    </Key>
+    <Property Name="mChoiceOptionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="B" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="C" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="D" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_QuestionBankMaker_MChoiceOption" FromRole="MChoiceOption" ToRole="QuestionMaker" />
+  </EntityType>
+  <EntityType Name="QuestionMaker">
+    <Key>
+      <PropertyRef Name="questionMakerid" />
+    </Key>
+    <Property Name="questionMakerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="subjectid" Type="Int32" />
+    <Property Name="questionTypeid" Type="Int32" />
+    <Property Name="degreeOfDifficultid" Type="Int32" />
+    <Property Name="questionScore" Type="Int32" />
+    <Property Name="answersid" Type="Int32" />
+    <Property Name="mChoiceOptionid" Type="Int32" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_QuestionBankMaker_AnswerKey" FromRole="QuestionMaker" ToRole="Answers" />
+    <NavigationProperty Name="DegreeOfDifficult" Relationship="Self.FK_QuestionBankMaker_DegreeOfDifficult" FromRole="QuestionMaker" ToRole="DegreeOfDifficult" />
+    <NavigationProperty Name="ExamMaker" Relationship="Self.FK_ExamMaker_QuestionBankMaker" FromRole="QuestionMaker" ToRole="ExamMaker" />
+    <NavigationProperty Name="MChoiceOption" Relationship="Self.FK_QuestionBankMaker_MChoiceOption" FromRole="QuestionMaker" ToRole="MChoiceOption" />
+    <NavigationProperty Name="QuestionType" Relationship="Self.FK_QuestionBankMaker_QuestionType" FromRole="QuestionMaker" ToRole="QuestionType" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_QuestionBankMaker_Subject" FromRole="QuestionMaker" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="QuestionType">
+    <Key>
+      <PropertyRef Name="questionTypeid" />
+    </Key>
+    <Property Name="questionTypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="questionType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_QuestionBankMaker_QuestionType" FromRole="QuestionType" ToRole="QuestionMaker" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="subjectid" />
+    </Key>
+    <Property Name="subjectid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lessonid" Type="Int32" />
+    <NavigationProperty Name="Lesson" Relationship="Self.FK_Subject_Lesson" FromRole="Subject" ToRole="Lesson" />
+    <NavigationProperty Name="QuestionMaker" Relationship="Self.FK_QuestionBankMaker_Subject" FromRole="Subject" ToRole="QuestionMaker" />
+  </EntityType>
+  <EntityType Name="Supervisor">
+    <Key>
+      <PropertyRef Name="supervisorid" />
+    </Key>
+    <Property Name="supervisorid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="supervisor1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ExamMaker" Relationship="Self.FK_ExamMaker_Supervisor" FromRole="Supervisor" ToRole="ExamMaker" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_QuestionBankMaker_AnswerKey">
+    <End Role="Answers" Type="Self.Answers" Multiplicity="0..1" />
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answers">
+        <PropertyRef Name="answersid" />
+      </Principal>
+      <Dependent Role="QuestionMaker">
+        <PropertyRef Name="answersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionBankMaker_DegreeOfDifficult">
+    <End Role="DegreeOfDifficult" Type="Self.DegreeOfDifficult" Multiplicity="0..1" />
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DegreeOfDifficult">
+        <PropertyRef Name="degreeOffDiffid" />
+      </Principal>
+      <Dependent Role="QuestionMaker">
+        <PropertyRef Name="degreeOfDifficultid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamMaker_ExamLocation">
+    <End Role="ExamLocation" Type="Self.ExamLocation" Multiplicity="0..1" />
+    <End Role="ExamMaker" Type="Self.ExamMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamLocation">
+        <PropertyRef Name="examLocationid" />
+      </Principal>
+      <Dependent Role="ExamMaker">
+        <PropertyRef Name="examLocationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamMaker_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+    <End Role="ExamMaker" Type="Self.ExamMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="groupid" />
+      </Principal>
+      <Dependent Role="ExamMaker">
+        <PropertyRef Name="groupid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamMaker_QuestionBankMaker">
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="0..1" />
+    <End Role="ExamMaker" Type="Self.ExamMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionMaker">
+        <PropertyRef Name="questionMakerid" />
+      </Principal>
+      <Dependent Role="ExamMaker">
+        <PropertyRef Name="questionMakerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamMaker_Supervisor">
+    <End Role="Supervisor" Type="Self.Supervisor" Multiplicity="0..1" />
+    <End Role="ExamMaker" Type="Self.ExamMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supervisor">
+        <PropertyRef Name="supervisorid" />
+      </Principal>
+      <Dependent Role="ExamMaker">
+        <PropertyRef Name="supervisorid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExamWriter_ExamMaker">
+    <End Role="ExamMaker" Type="Self.ExamMaker" Multiplicity="0..1" />
+    <End Role="ExamWriter" Type="Self.ExamWriter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamMaker">
+        <PropertyRef Name="examMakerid" />
+      </Principal>
+      <Dependent Role="ExamWriter">
+        <PropertyRef Name="examMakerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subject_Lesson">
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lesson">
+        <PropertyRef Name="lessonid" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="lessonid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionBankMaker_MChoiceOption">
+    <End Role="MChoiceOption" Type="Self.MChoiceOption" Multiplicity="0..1" />
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MChoiceOption">
+        <PropertyRef Name="mChoiceOptionid" />
+      </Principal>
+      <Dependent Role="QuestionMaker">
+        <PropertyRef Name="mChoiceOptionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionBankMaker_QuestionType">
+    <End Role="QuestionType" Type="Self.QuestionType" Multiplicity="0..1" />
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionType">
+        <PropertyRef Name="questionTypeid" />
+      </Principal>
+      <Dependent Role="QuestionMaker">
+        <PropertyRef Name="questionTypeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionBankMaker_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="QuestionMaker" Type="Self.QuestionMaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="subjectid" />
+      </Principal>
+      <Dependent Role="QuestionMaker">
+        <PropertyRef Name="subjectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quizMakerdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answers" />
+    <EntitySet Name="DegreeOfDifficult" EntityType="Self.DegreeOfDifficult" />
+    <EntitySet Name="ExamLocation" EntityType="Self.ExamLocation" />
+    <EntitySet Name="ExamMaker" EntityType="Self.ExamMaker" />
+    <EntitySet Name="ExamWriter" EntityType="Self.ExamWriter" />
+    <EntitySet Name="Group" EntityType="Self.Group" />
+    <EntitySet Name="Lesson" EntityType="Self.Lesson" />
+    <EntitySet Name="MChoiceOption" EntityType="Self.MChoiceOption" />
+    <EntitySet Name="QuestionMaker" EntityType="Self.QuestionMaker" />
+    <EntitySet Name="QuestionType" EntityType="Self.QuestionType" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" />
+    <EntitySet Name="Supervisor" EntityType="Self.Supervisor" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_QuestionBankMaker_AnswerKey" Association="Self.FK_QuestionBankMaker_AnswerKey">
+      <End Role="Answers" EntitySet="Answers" />
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionBankMaker_DegreeOfDifficult" Association="Self.FK_QuestionBankMaker_DegreeOfDifficult">
+      <End Role="DegreeOfDifficult" EntitySet="DegreeOfDifficult" />
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamMaker_ExamLocation" Association="Self.FK_ExamMaker_ExamLocation">
+      <End Role="ExamLocation" EntitySet="ExamLocation" />
+      <End Role="ExamMaker" EntitySet="ExamMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamMaker_Group" Association="Self.FK_ExamMaker_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="ExamMaker" EntitySet="ExamMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamMaker_QuestionBankMaker" Association="Self.FK_ExamMaker_QuestionBankMaker">
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+      <End Role="ExamMaker" EntitySet="ExamMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamMaker_Supervisor" Association="Self.FK_ExamMaker_Supervisor">
+      <End Role="Supervisor" EntitySet="Supervisor" />
+      <End Role="ExamMaker" EntitySet="ExamMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExamWriter_ExamMaker" Association="Self.FK_ExamWriter_ExamMaker">
+      <End Role="ExamMaker" EntitySet="ExamMaker" />
+      <End Role="ExamWriter" EntitySet="ExamWriter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subject_Lesson" Association="Self.FK_Subject_Lesson">
+      <End Role="Lesson" EntitySet="Lesson" />
+      <End Role="Subject" EntitySet="Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionBankMaker_MChoiceOption" Association="Self.FK_QuestionBankMaker_MChoiceOption">
+      <End Role="MChoiceOption" EntitySet="MChoiceOption" />
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionBankMaker_QuestionType" Association="Self.FK_QuestionBankMaker_QuestionType">
+      <End Role="QuestionType" EntitySet="QuestionType" />
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionBankMaker_Subject" Association="Self.FK_QuestionBankMaker_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="QuestionMaker" EntitySet="QuestionMaker" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(quizMakerdbModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(quizMakerdbModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

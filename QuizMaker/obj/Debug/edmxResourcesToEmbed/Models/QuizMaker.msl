@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quizMakerdbModelStoreContainer" CdmEntityContainer="quizMakerdbEntities">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="quizMakerdbModel.Answers">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="answersid" ColumnName="answersid" />
+          <ScalarProperty Name="answers1" ColumnName="answers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DegreeOfDifficult">
+      <EntityTypeMapping TypeName="quizMakerdbModel.DegreeOfDifficult">
+        <MappingFragment StoreEntitySet="DegreeOfDifficult">
+          <ScalarProperty Name="degreeOffDiffid" ColumnName="degreeOffDiffid" />
+          <ScalarProperty Name="degreeOfDiff" ColumnName="degreeOfDiff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamLocation">
+      <EntityTypeMapping TypeName="quizMakerdbModel.ExamLocation">
+        <MappingFragment StoreEntitySet="ExamLocation">
+          <ScalarProperty Name="examLocationid" ColumnName="examLocationid" />
+          <ScalarProperty Name="examLocation1" ColumnName="examLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamMaker">
+      <EntityTypeMapping TypeName="quizMakerdbModel.ExamMaker">
+        <MappingFragment StoreEntitySet="ExamMaker">
+          <ScalarProperty Name="examMakerid" ColumnName="examMakerid" />
+          <ScalarProperty Name="examNo" ColumnName="examNo" />
+          <ScalarProperty Name="examName" ColumnName="examName" />
+          <ScalarProperty Name="examLocationid" ColumnName="examLocationid" />
+          <ScalarProperty Name="supervisorid" ColumnName="supervisorid" />
+          <ScalarProperty Name="questionMakerid" ColumnName="questionMakerid" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="lessonid" ColumnName="lessonid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamWriter">
+      <EntityTypeMapping TypeName="quizMakerdbModel.ExamWriter">
+        <MappingFragment StoreEntitySet="ExamWriter">
+          <ScalarProperty Name="examWriterid" ColumnName="examWriterid" />
+          <ScalarProperty Name="examMakerid" ColumnName="examMakerid" />
+          <ScalarProperty Name="studentAnswer" ColumnName="studentAnswer" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="quizMakerdbModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="groupNo" ColumnName="groupNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lesson">
+      <EntityTypeMapping TypeName="quizMakerdbModel.Lesson">
+        <MappingFragment StoreEntitySet="Lesson">
+          <ScalarProperty Name="lessonid" ColumnName="lessonid" />
+          <ScalarProperty Name="lesson1" ColumnName="lesson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MChoiceOption">
+      <EntityTypeMapping TypeName="quizMakerdbModel.MChoiceOption">
+        <MappingFragment StoreEntitySet="MChoiceOption">
+          <ScalarProperty Name="mChoiceOptionid" ColumnName="mChoiceOptionid" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="D" ColumnName="D" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionMaker">
+      <EntityTypeMapping TypeName="quizMakerdbModel.QuestionMaker">
+        <MappingFragment StoreEntitySet="QuestionMaker">
+          <ScalarProperty Name="questionMakerid" ColumnName="questionMakerid" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="questionTypeid" ColumnName="questionTypeid" />
+          <ScalarProperty Name="degreeOfDifficultid" ColumnName="degreeOfDifficultid" />
+          <ScalarProperty Name="questionScore" ColumnName="questionScore" />
+          <ScalarProperty Name="answersid" ColumnName="answersid" />
+          <ScalarProperty Name="mChoiceOptionid" ColumnName="mChoiceOptionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionType">
+      <EntityTypeMapping TypeName="quizMakerdbModel.QuestionType">
+        <MappingFragment StoreEntitySet="QuestionType">
+          <ScalarProperty Name="questionTypeid" ColumnName="questionTypeid" />
+          <ScalarProperty Name="questionType1" ColumnName="questionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subject">
+      <EntityTypeMapping TypeName="quizMakerdbModel.Subject">
+        <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="subject1" ColumnName="subject" />
+          <ScalarProperty Name="lessonid" ColumnName="lessonid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supervisor">
+      <EntityTypeMapping TypeName="quizMakerdbModel.Supervisor">
+        <MappingFragment StoreEntitySet="Supervisor">
+          <ScalarProperty Name="supervisorid" ColumnName="supervisorid" />
+          <ScalarProperty Name="supervisor1" ColumnName="supervisor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="quizMakerdbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_examWriter">
+      <EntityTypeMapping TypeName="quizMakerdbModel.vw_examWriter">
+        <MappingFragment StoreEntitySet="vw_examWriter">
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="examNo" ColumnName="examNo" />
+          <ScalarProperty Name="groupNo" ColumnName="groupNo" />
+          <ScalarProperty Name="answers" ColumnName="answers" />
+          <ScalarProperty Name="studentAnswer" ColumnName="studentAnswer" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
