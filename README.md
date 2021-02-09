@@ -35,7 +35,7 @@
 - Çoktan seçmeli ve doğru yanlış sorular için doğru ve yanlış cevaplama sayıları
 - klasik sorular için de en düşük, en yüksek ve ortalama puan hesabı yapma ve listeleme
 
-<b>Destek</b>
+## <b>Destek</b>
 Herhangi bir sorun, geri bildirim veya özellik talebi için omerfaruk56@live.com adresine bir e-posta gönderin, github'da bir Issues oluşturun
 
 Ekran Görüntüsü
