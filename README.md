@@ -9,9 +9,7 @@
 - UI DevExpress 
 - Design Pattern 
 
-<b>Program Özellikleri</b>
-</br>
-</br>
+## <b>Program Özellikleri</b>
 
 <b>Soru bankası oluşturma</b>
 - Soru tipi seçebilme
@@ -37,9 +35,10 @@
 - Çoktan seçmeli ve doğru yanlış sorular için doğru ve yanlış cevaplama sayıları
 - klasik sorular için de en düşük, en yüksek ve ortalama puan hesabı yapma ve listeleme
 
-<br/>
-<br/>
+<b>Destek</b>
+Herhangi bir sorun, geri bildirim veya özellik talebi için omerfaruk56@live.com adresine bir e-posta gönderin, github'da bir Issues oluşturun
 
+Ekran Görüntüsü
 ![](https://i.imgyukle.com/2021/01/18/HJzGob.jpg)
 
 Database UML Diagram
