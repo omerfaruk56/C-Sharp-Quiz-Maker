@@ -1,12 +1,14 @@
 # Quiz Maker <br/> (Dijital Sınav Oluşturma)
-<br/>
-• MVP mimari tasarım desenine uygun olarak geliştirildi.
-<br/>
-• LINQ Kullanıldı.
-<br/>
-• Veri Tabanı olarak SQL SERVER kullanıldı.
-<br/>
-</br>
+
+<b>Kullanılan Teknolojiler</b>
+- C#
+- T-SQL
+- Entity Framework
+- LINQ 
+- MVP Architecture Design Pattern
+- UI DevExpress 
+- Design Pattern 
+
 <b>Program Özellikleri</b>
 </br>
 </br>
