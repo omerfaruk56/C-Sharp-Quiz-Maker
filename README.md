@@ -9,7 +9,7 @@
 - UI DevExpress 
 - Design Pattern 
 
-# Materials
+# Features
 
 <b>Soru bankası oluşturma</b>
 - Soru tipi seçebilme
