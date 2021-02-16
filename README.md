@@ -1,4 +1,4 @@
-# Quiz Maker <br/> (Dijital Sınav Oluşturma)
+# Dijital Sınav Oluşturma
 
 # Technologies
 - C#
