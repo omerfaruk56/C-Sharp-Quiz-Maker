@@ -35,13 +35,12 @@
 - Çoktan seçmeli ve doğru yanlış sorular için doğru ve yanlış cevaplama sayıları
 - klasik sorular için de en düşük, en yüksek ve ortalama puan hesabı yapma ve listeleme
 
-# Support
-Herhangi bir sorun, geri bildirim veya özellik talebi için omerfaruk56@live.com adresine bir e-posta gönderin, github'da bir Issues oluşturun
-
-Ekran Görüntüsü
+<b>Ekran Görüntüsü</b>
 ![](https://i.imgyukle.com/2021/01/18/HJzGob.jpg)
 
-Database UML Diagram
+<b>Database UML Diagram</b>
 ![](https://i.hizliresim.com/WHdRSx.png)
 
+# Support
+Herhangi bir sorun, geri bildirim veya özellik talebi için omerfaruk56@live.com adresine bir e-posta gönderin, github'da bir Issues oluşturun
 
