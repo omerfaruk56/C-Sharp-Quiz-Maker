@@ -36,7 +36,10 @@
 - klasik sorular için de en düşük, en yüksek ve ortalama puan hesabı yapma ve listeleme
 
 <b>Ekran Görüntüsü</b>
-![](https://i.imgyukle.com/2021/01/18/HJzGob.jpg)
+![](https://www.hizliresim.com/sukmxx0)
+
+<b>Ekran Görüntüsü</b>
+![](https://i.hizliresim.com/pk2zsd5.png)
 
 <b>Database UML Diagram</b>
 ![](https://i.hizliresim.com/WHdRSx.png)
